@@ -1,1 +1,0 @@
-client id for google accounts sign in intergration: 400983391269-65l3bgkmknemurhhqfri7p2lcsji72hd.apps.googleusercontent.com

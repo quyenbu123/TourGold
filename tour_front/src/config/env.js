@@ -4,7 +4,14 @@
  */
 
 // API Base URL (Change based on environment)
-export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080/api';
+const explicitApiBaseUrl = process.env.REACT_APP_API_BASE_URL?.replace(/\/$/, '');
+const explicitBackendUrl = process.env.REACT_APP_API_URL?.replace(/\/$/, '');
+
+export const BACKEND_URL =
+  explicitBackendUrl ||
+  (explicitApiBaseUrl ? explicitApiBaseUrl.replace(/\/api$/, '') : 'http://localhost:8080');
+
+export const API_BASE_URL = explicitApiBaseUrl || `${BACKEND_URL}/api`;
 
 // Other environment variables
 export const APP_NAME = 'Tour Gold';

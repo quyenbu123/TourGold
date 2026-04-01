@@ -12,7 +12,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/promotions")
-@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class PromotionController {
 

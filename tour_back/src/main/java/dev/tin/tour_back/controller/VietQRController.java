@@ -9,7 +9,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/payment/vietqr")
-@CrossOrigin(origins = "http://localhost:3000")
 public class VietQRController {
 
     @Autowired

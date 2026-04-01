@@ -32,7 +32,7 @@ public class SecurityConfig {
     private final UnauthorizedHandler unauthorizedHandler;
     private final PasswordEncoder passwordEncoder;
     
-    @Value("${security.cors.allowed-origins:http://localhost:3000, http://127.0.0.1:3000}")
+    @Value("${security.cors.allowed-origins:http://localhost:3000,http://127.0.0.1:3000}")
     private String[] allowedOrigins;
     
     @Value("${security.cors.allowed-methods:GET, POST, PUT, DELETE, OPTIONS, PATCH}")

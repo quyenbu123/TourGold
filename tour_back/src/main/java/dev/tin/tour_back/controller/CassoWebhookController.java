@@ -20,7 +20,6 @@ import java.util.regex.Pattern;
 
 @RestController
 @RequestMapping("/api/v1/payment/casso")
-@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class CassoWebhookController {
 

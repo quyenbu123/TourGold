@@ -1,0 +1,64 @@
+services:
+  - type: web
+    name: tourgold-backend
+    runtime: java
+    plan: free
+    rootDir: tour_back
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/tour_back-0.0.1-SNAPSHOT.jar
+    healthCheckPath: /api/v1/tours/featured-ids
+    envVars:
+      - key: PORT
+        sync: false
+      - key: DB_URL
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: APP_FRONTEND_BASE_URL
+        sync: false
+      - key: VNPAY_RETURN_URL
+        sync: false
+      - key: VNPAY_IPN_URL
+        sync: false
+      - key: VIETQR_REDIRECT_URL
+        sync: false
+      - key: VIETQR_IPN_URL
+        sync: false
+      - key: MAIL_HOST
+        sync: false
+      - key: MAIL_PORT
+        sync: false
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      - key: CLOUDINARY_NAME
+        sync: false
+      - key: CLOUDINARY_KEY
+        sync: false
+      - key: CLOUDINARY_SECRET
+        sync: false
+      - key: CASSO_API_KEY
+        sync: false
+      - key: VIETQR_CLIENT_ID
+        sync: false
+      - key: VIETQR_API_ID
+        sync: false
+      - key: VNPAY_TMN_CODE
+        sync: false
+      - key: VNPAY_SECRET_KEY
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: PAYMENT_MOCK_ENABLED
+        value: "false"
+      - key: PAYMENT_MOCK_AUTO_APPROVE
+        value: "false"

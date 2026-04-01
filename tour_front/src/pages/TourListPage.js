@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import tourService from '../services/tourService';
 import LoadingSpinner from '../components/common/LoadingSpinner';
+import { BACKEND_URL } from '../config/env';
 
 // Debug helpers for image loading diagnostics
 const DEBUG_IMAGES = true;
 const FALLBACK_IMG = 'https://via.placeholder.com/600x400?text=Image+Not+Found';
 const DEFAULT_CARD_IMAGE = 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80';
-const API_BASE = (typeof process !== 'undefined' && process.env && process.env.REACT_APP_API_URL) || 'http://localhost:8080';
+const API_BASE = BACKEND_URL;
 const isAbsoluteUrl = (u) => typeof u === 'string' && /^(https?:|data:|blob:)/i.test(u);
 const normalizeUrl = (u) => {
   if (!u || typeof u !== 'string') return '';

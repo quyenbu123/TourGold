@@ -13,7 +13,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/type-of-services")
-@CrossOrigin(origins = "*")
 public class TypeOfServiceController {
     @Autowired
     private TypeOfServiceService typeOfServiceService;

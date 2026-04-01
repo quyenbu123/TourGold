@@ -1,8 +1,8 @@
 import axios from "axios";
 import { isTokenExpired, isTokenStructureValid } from "../utils/jwtUtils";
+import { BACKEND_URL } from "../config/env";
 
 // URL kết nối đến backend
-const BACKEND_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
 
 // Xác định trạng thái demo mode dựa trên môi trường
 export const isDemoMode =

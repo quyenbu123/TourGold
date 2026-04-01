@@ -13,7 +13,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/type-of-tours")
-@CrossOrigin(origins = "*")
 public class TypeOfTourController {
     @Autowired
     private TypeOfTourService typeOfTourService;

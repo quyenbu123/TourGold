@@ -508,7 +508,7 @@ public class DataSeeder {
         // Create image entity
         TourImageEntity image = new TourImageEntity();
         image.setTour(tour);
-        image.setUrl("http://localhost:8080/static/images/" + fileName);
+        image.setUrl("/static/images/" + fileName);
         return image;
     }
 

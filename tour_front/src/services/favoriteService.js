@@ -1,7 +1,7 @@
 import axios from 'axios';
 import api from './api'; // Import the configured axios instance
 
-const API_URL = 'http://localhost:8080/api/v1/favorites';
+const API_URL = '/api/v1/favorites';
 
 export const favoriteService = {
     getUserFavorites: async (userId) => {

@@ -8,7 +8,7 @@ spring:
   datasource:
     url: ${DB_URL:jdbc:mysql://localhost:3306/test_tour}
     username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:22072004}
+    password: ${DB_PASSWORD:}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -29,8 +29,8 @@ spring:
   mail:
     host: ${MAIL_HOST:smtp.gmail.com}
     port: ${MAIL_PORT:587}
-    username: ${MAIL_USERNAME:caodangquyen.pt04@gmail.com}
-    password: ${MAIL_PASSWORD:kjjo unbl twkl orby}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
     properties:
       mail:
         smtp:
@@ -39,7 +39,7 @@ spring:
             enable: true
 
 server:
-  port: ${SERVER_PORT:8080}
+  port: ${PORT:${SERVER_PORT:8080}}
   servlet:
     session:
       cookie:
@@ -50,48 +50,48 @@ server:
     max-http-form-post-size: 50MB
 
 cloudinary:
-  cloudName: ${CLOUDINARY_NAME:duwwdywvy}
-  apiKey: ${CLOUDINARY_KEY:238574395261878}
-  apiSecret: ${CLOUDINARY_SECRET:1mwCy8yHEMEyHMsRuOuNW6H36HI}
+  cloudName: ${CLOUDINARY_NAME:}
+  apiKey: ${CLOUDINARY_KEY:}
+  apiSecret: ${CLOUDINARY_SECRET:}
 
 security:
   jwt:
-    secret-key: ${JWT_SECRET:verysecrethehe}
+    secret-key: ${JWT_SECRET:change-me-in-production}
     token-duration: ${JWT_TOKEN_DURATION:2H}
     refresh-token-duration: ${JWT_REFRESH_TOKEN_DURATION:7D}
   cors:
-    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000, http://127.0.0.1:3000}
-    allowed-methods: ${CORS_ALLOWED_METHODS:GET, POST, PUT, DELETE, OPTIONS, PATCH}
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://127.0.0.1:3000}
+    allowed-methods: ${CORS_ALLOWED_METHODS:GET,POST,PUT,DELETE,OPTIONS,PATCH}
     allowed-headers: ${CORS_ALLOWED_HEADERS:*}
     allow-credentials: ${CORS_ALLOW_CREDENTIALS:true}
 
 payment:
   vietqr:
     bankCode: ${VIETQR_BANK_CODE:970415}
-    accountNumber: ${VIETQR_ACCOUNT_NUMBER:107884314193}
-    accountName: ${VIETQR_ACCOUNT_NAME:CAO DANG QUYEN}
+    accountNumber: ${VIETQR_ACCOUNT_NUMBER:}
+    accountName: ${VIETQR_ACCOUNT_NAME:}
     description: ${VIETQR_DESCRIPTION:Thanh toan cho tour}
-    clientId: ${VIETQR_CLIENT_ID:2ad1b73d-d9ea-44ac-ac32-2d6074c8b92a}
-    apiId: ${VIETQR_API_ID:00f7e1de-de76-4cff-a855-39331534b964}
+    clientId: ${VIETQR_CLIENT_ID:}
+    apiId: ${VIETQR_API_ID:}
     baseUrl: ${VIETQR_BASE_URL:https://api.vietqr.io}
     redirectUrl: ${VIETQR_REDIRECT_URL:http://localhost:8080/api/v1/payment/redirect}
     ipnUrl: ${VIETQR_IPN_URL:http://localhost:8080/api/v1/payment/ipn}
   vnpay:
     version: ${VNPAY_VERSION:2.1.0}
-    tmn-code: ${VNPAY_TMN_CODE:CXCAJENW}
-    hash-secret-key: ${VNPAY_SECRET_KEY:ZY68GX06R5DO2EDKQL2DT799YRWJFN2A}
+    tmn-code: ${VNPAY_TMN_CODE:}
+    hash-secret-key: ${VNPAY_SECRET_KEY:}
     url: ${VNPAY_URL:https://sandbox.vnpayment.vn/paymentv2/vpcpay.html}
     api-url: ${VNPAY_API_URL:https://sandbox.vnpayment.vn/paymentv2}
     return-url: ${VNPAY_RETURN_URL:http://localhost:3000/payment/status}
     ipn-url: ${VNPAY_IPN_URL:http://localhost:8080/api/v1/payment/vnpay/ipn}
   mock:
-    enabled: ${PAYMENT_MOCK_ENABLED:true}
-    auto-approve: ${PAYMENT_MOCK_AUTO_APPROVE:true}
+    enabled: ${PAYMENT_MOCK_ENABLED:false}
+    auto-approve: ${PAYMENT_MOCK_AUTO_APPROVE:false}
     delay-ms: ${PAYMENT_MOCK_DELAY_MS:4500}
 
 checkpayment:
   Casso:
-    api-key: ${CASSO_API_KEY:AK_CS.dfcc7ce0364111f09d462b0aafd29284.f7jnuvyPwLN7Tp8uJUwZxdTAvJ9INCKDeHmI1apPUMF6VjRpJ6BShmsLZElAAvz05iIozGYd}
+    api-key: ${CASSO_API_KEY:}
     api-get-piad: ${CASSO_API_GET_PAID_URL:https://oauth.casso.vn/v2/transactions}
 
 logging:
@@ -107,8 +107,8 @@ app:
   frontend-base-url: ${APP_FRONTEND_BASE_URL:http://localhost:3000}
 gemini:
   api:
-    key: ${GEMINI_API_KEY:AIzaSyCFlwZe0zGAeS5TN-IcCxhYVHQYIC2sjEg}
+    key: ${GEMINI_API_KEY:}
     model: ${GEMINI_MODEL:gemini-2.0-flash}
 
 google:
-  client-id: ${GOOGLE_CLIENT_ID:400983391269-65l3bgkmknemurhhqfri7p2lcsji72hd.apps.googleusercontent.com}
+  client-id: ${GOOGLE_CLIENT_ID:}

@@ -12,7 +12,6 @@ import java.util.*;
  */
 @RestController
 @RequestMapping("/api/v1/mock/casso")
-@CrossOrigin(origins = "*")
 public class MockCassoController {
 
     @Autowired

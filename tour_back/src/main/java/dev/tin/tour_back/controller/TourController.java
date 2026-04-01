@@ -29,7 +29,6 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/api/v1/tours")
-@CrossOrigin(origins = "*")
 public class TourController {
 
     @Autowired

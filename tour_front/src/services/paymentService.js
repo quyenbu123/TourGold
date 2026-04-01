@@ -1,6 +1,7 @@
 import api from "./api";
 import authService from "./authService";
 import { createLogger } from "../utils/debugLogger";
+import { BACKEND_URL } from "../config/env";
 
 // Create a logger instance for the payment service
 const logger = createLogger("PaymentService");
@@ -226,14 +227,12 @@ const paymentService = {
     try {
       // Sử dụng endpoint local để tránh gọi trực tiếp đến Casso API
       logger.info(
-        "Getting transactions from local endpoint: http://localhost:8080/api/v1/payment/check/transactions"
+        `Getting transactions from backend endpoint: ${BACKEND_URL}/api/v1/payment/check/transactions`
       );
 
       // Use the full URL to ensure we're using the local endpoint
       const response = await withRetry(async () => {
-        return await api.get(
-          "http://localhost:8080/api/v1/payment/check/transactions"
-        );
+        return await api.get("/api/v1/payment/check/transactions");
       });
 
       // Check for API error
@@ -275,9 +274,7 @@ const paymentService = {
 
       // Show a more user-friendly error in the console
       logger.error("API Error:", error.message);
-      logger.error(
-        "Hãy đảm bảo máy chủ backend đang chạy tại http://localhost:8080"
-      );
+      logger.error(`Hãy đảm bảo máy chủ backend đang chạy tại ${BACKEND_URL}`);
 
       // Return the fallback response to prevent frontend crashes
       return fallbackResponse;

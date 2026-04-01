@@ -121,7 +121,7 @@ public class TourImageService {
             Files.copy(image.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
             // Trả về URL tương đối của ảnh
-            return "http://localhost:8080/static/images/" + fileName;
+            return "/static/images/" + fileName;
         } catch (IOException e) {
             throw new RuntimeException("Lỗi khi lưu ảnh vào thư mục local", e);
         }
