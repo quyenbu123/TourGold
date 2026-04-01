@@ -1,0 +1,24 @@
+.host-sidebar {
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.host-layout .nav-link {
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.host-layout .nav-link:hover {
+  background-color: rgba(13, 110, 253, 0.08);
+}
+
+.host-layout .nav-link.active {
+  background-color: rgba(13, 110, 253, 0.12);
+  color: #0d6efd !important;
+}
+
+@media (max-width: 991.98px) {
+  .host-sidebar {
+    width: 260px;
+  }
+}

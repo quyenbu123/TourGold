@@ -1,0 +1,840 @@
+/* 
+ * Tour Gold - Minimalist Travel Experience
+ */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* CSS Variables - Minimalist Color Palette */
+:root {
+  --primary-color: #3B82F6;      /* Modern blue */
+  --primary-dark: #2563EB;       /* Darker blue for hover states */
+  --primary-light: #EFF6FF;      /* Light blue for backgrounds */
+  
+  --secondary-color: #10B981;    /* Subtle green */
+  --secondary-dark: #059669;     /* Darker green */
+  --secondary-light: #ECFDF5;    /* Light green for backgrounds */
+  
+  --dark-color: #1F2937;         /* Dark slate for text */
+  --dark-light: #4B5563;         /* Medium slate for secondary text */
+  
+  --light-color: #F9FAFB;        /* Off-white for backgrounds */
+  --white-color: #FFFFFF;        /* Pure white */
+  
+  --success-color: #10B981;      /* Green */
+  --danger-color: #EF4444;       /* Red */
+  --warning-color: #F59E0B;      /* Amber */
+  --info-color: #3B82F6;         /* Blue */
+  
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-700: #374151;
+  --gray-900: #111827;
+  
+  /* Shadows - More subtle */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.04);
+  
+  /* Border Radius - More consistent */
+  --border-radius-sm: 0.25rem;
+  --border-radius: 0.375rem;
+  --border-radius-lg: 0.5rem;
+  --border-radius-xl: 0.75rem;
+
+  /* Transitions */
+  --transition-speed: 0.2s;
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--dark-color);
+  background-color: var(--light-color);
+  line-height: 1.5;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+p {
+  color: var(--dark-light);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color var(--transition-speed) var(--transition-timing);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-400);
+}
+
+/* Enhanced Header & Navigation */
+.navbar {
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+  background-color: transparent !important;
+}
+
+.navbar.scrolled {
+  background-color: var(--white-color) !important;
+  box-shadow: var(--shadow);
+}
+
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--primary-color) !important;
+}
+
+.navbar-nav .nav-link {
+  color: var(--dark-color) !important;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 100%;
+}
+
+/* Clean buttons */
+.btn {
+  border-radius: var(--border-radius);
+  padding: 0.625rem 1.25rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-dark);
+  border-color: var(--secondary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  color: white;
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Search box styling - more minimal */
+.search-box {
+  background-color: var(--white-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  border-left: 3px solid var(--primary-color);
+}
+
+.search-box .form-control,
+.search-box .form-select {
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  font-size: 0.9375rem;
+}
+
+.search-box .form-control:focus,
+.search-box .form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+}
+
+.search-box label {
+  font-weight: 500;
+  margin-bottom: 0.375rem;
+  display: block;
+  font-size: 0.875rem;
+}
+
+/* Tour Cards - cleaner and more minimal */
+.tour-card {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background-color: var(--white-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+  border: none;
+  position: relative;
+}
+
+.tour-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.tour-card-img-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.tour-card-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.tour-card:hover .tour-card-img {
+  transform: scale(1.05);
+}
+
+.tour-card-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 500;
+  font-size: 0.75rem;
+  z-index: 10;
+}
+
+.tour-card-price-tag {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  background-color: var(--white-color);
+  color: var(--primary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  font-size: 0.875rem;
+  box-shadow: var(--shadow-sm);
+  z-index: 10;
+}
+
+.tour-card-body {
+  padding: 1.25rem;
+}
+
+.tour-card-title {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.tour-card-location {
+  display: flex;
+  align-items: center;
+  color: var(--dark-light);
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.tour-card-location i {
+  color: var(--primary-color);
+  margin-right: 0.375rem;
+}
+
+.tour-card-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.tour-card-rating .stars {
+  color: var(--warning-color);
+  font-size: 0.875rem;
+  margin-right: 0.375rem;
+}
+
+.tour-card-rating .score {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  font-size: 0.75rem;
+  margin-right: 0.375rem;
+}
+
+.tour-card-rating .review-count {
+  color: var(--dark-light);
+  font-size: 0.75rem;
+}
+
+.tour-card-price {
+  display: flex;
+  align-items: center;
+  margin: 0.75rem 0;
+}
+
+.tour-card-price .old-price {
+  text-decoration: line-through;
+  color: var(--gray-500);
+  font-size: 0.875rem;
+  margin-right: 0.5rem;
+}
+
+.tour-card-price .current-price {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.tour-card-price .price-unit {
+  color: var(--dark-light);
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+}
+
+.tour-card-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--gray-100);
+  font-size: 0.8125rem;
+}
+
+.tour-card-duration,
+.tour-card-availability {
+  color: var(--dark-light);
+}
+
+/* Hero Section - more minimal */
+.hero-section {
+  position: relative;
+  padding: 8rem 0 6rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  color: white;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section h1 {
+  margin-bottom: 1.25rem;
+  animation: fadeInUp 0.8s ease;
+}
+
+.hero-section p {
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  animation: fadeInUp 1s ease;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-search-container {
+  position: relative;
+  margin-top: 2rem;
+  z-index: 10;
+  animation: fadeInUp 1.2s ease;
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form styles - more clean */
+.form-control {
+  border-radius: var(--border-radius);
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--gray-200);
+  transition: all 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+}
+
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.375rem;
+  font-size: 0.875rem;
+}
+
+/* Footer styling - cleaner */
+footer {
+  background-color: var(--dark-color);
+  color: var(--white-color);
+  padding: 4rem 0 2rem;
+}
+
+footer h5 {
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  color: white;
+  font-size: 1rem;
+}
+
+footer h5::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+footer a {
+  color: var(--gray-400);
+  transition: color 0.2s ease;
+  display: block;
+  margin-bottom: 0.625rem;
+  font-size: 0.875rem;
+}
+
+footer a:hover {
+  color: var(--primary-color);
+}
+
+footer .footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white-color);
+  margin-right: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+footer .footer-social a:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Destination card - cleaner */
+.destination-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.destination-card img {
+  transition: transform 0.4s ease;
+}
+
+.destination-card:hover img {
+  transform: scale(1.05);
+}
+
+.destination-card .destination-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  color: white;
+}
+
+.destination-card .destination-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.destination-card .badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.75rem;
+}
+
+/* Feature boxes - cleaner */
+.feature-box {
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  background-color: var(--white-color);
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease;
+  border-left: 3px solid var(--primary-color);
+  height: 100%;
+}
+
+.feature-box:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-box .feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  border-radius: var(--border-radius);
+  margin-bottom: 1.25rem;
+}
+
+.feature-box h4 {
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  .navbar {
+    padding: 0.75rem 0;
+    background-color: var(--white-color) !important;
+  }
+  
+  .tour-card-img-container {
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 5rem 0;
+    text-align: center;
+  }
+  
+  .hero-section p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .search-box {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Tour detail page specific styles - cleaner */
+.tour-detail-hero {
+  height: 50vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+}
+
+.tour-detail-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+}
+
+.tour-detail-content {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 2rem;
+}
+
+.booking-card {
+  background-color: var(--white-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  border-left: 3px solid var(--primary-color);
+  position: sticky;
+  top: 2rem;
+}
+
+.booking-card-header {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.booking-card-body {
+  padding: 1.25rem;
+}
+
+.booking-price {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.booking-price-unit {
+  font-size: 0.875rem;
+  color: var(--dark-light);
+}
+
+.itinerary-timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.itinerary-timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: var(--gray-300);
+}
+
+.itinerary-item {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.itinerary-item::before {
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  border: 2px solid var(--white-color);
+  box-shadow: var(--shadow-sm);
+  z-index: 1;
+}
+
+.itinerary-item:last-child {
+  padding-bottom: 0;
+}
+
+/* Filters for TourListPage - cleaner */
+.filter-sidebar {
+  background-color: var(--white-color);
+  border-radius: var(--border-radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 2rem;
+}
+
+.filter-sidebar h4 {
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid var(--gray-100);
+  font-size: 1.125rem;
+}
+
+.filter-sidebar .form-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-bottom: 1.25rem;
+}
+
+.filter-tag {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--primary-light);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.75rem;
+}
+
+.filter-tag .close {
+  margin-left: 0.375rem;
+  cursor: pointer;
+}
+
+/* Clean gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.gallery-item {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 75%; /* 4:3 aspect ratio */
+  position: relative;
+}
+
+.gallery-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Clean tabs */
+.nav-tabs {
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.nav-tabs .nav-item {
+  margin-bottom: -1px;
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  color: var(--dark-light);
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background-color: transparent;
+}
+
+.nav-tabs .nav-link:hover:not(.active) {
+  border-color: var(--gray-300);
+}

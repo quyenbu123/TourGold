@@ -1,0 +1,81 @@
+@startuml
+hide circle
+hide methods
+skinparam classFontSize 12
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+
+' Entities based on current code
+class UserEntity {
+  +id : Long
+  +username : String
+  ...
+}
+
+class TourEntity {
+  +id : Long
+  +name : String
+  ...
+}
+
+class BookingStatusEntity {
+  +id : Long
+  +name : String
+  +description : String
+}
+
+class BookingEntity {
+  +id : Long
+  +user_id : Long
+  +tour_id : Long
+  +status_id : Long
+  +quantity : Integer
+  +checkInDate : LocalDateTime
+  +checkOutDate : LocalDateTime
+  +bookingTime : LocalDateTime
+  +invoice_id : Long
+}
+
+class InvoiceEntity {
+  +id : Long
+  +description : String
+  +totalAmount : Double
+  +note : Text
+  +billingDate : LocalDateTime
+  +createdAt : LocalDateTime
+}
+
+class PaymentEntity {
+  +id : Long
+  +user_id : Long
+  +date : LocalDateTime
+  +method : String
+  +amount : Double
+  +status : String
+  +isRefunded : Boolean
+  +refundAmount : Double
+  +refundDate : LocalDateTime
+}
+
+class InvoiceDetailEntity {
+  +id : Long
+  +invoice_id : Long
+  +payment_id : Long
+  +paidAmount : Double
+  +paymentDate : LocalDateTime
+  +status : String
+}
+
+' Relationships
+UserEntity "1" -- "*" BookingEntity : user
+TourEntity "1" -- "*" BookingEntity : tour
+BookingStatusEntity "1" -- "*" BookingEntity : status
+
+BookingEntity "1" -- "1" InvoiceEntity : invoice
+
+InvoiceEntity "1" -- "*" InvoiceDetailEntity : invoiceDetails
+PaymentEntity "1" -- "*" InvoiceDetailEntity : payment
+
+UserEntity "1" -- "*" PaymentEntity : user
+
+@enduml

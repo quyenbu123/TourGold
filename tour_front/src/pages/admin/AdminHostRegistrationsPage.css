@@ -1,0 +1,56 @@
+.host-registrations .card {
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.host-registrations .card-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.host-registrations table thead th {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.host-registrations table tbody td {
+  vertical-align: top;
+  font-size: 0.95rem;
+}
+
+.host-registrations .badge {
+  font-weight: 500;
+}
+
+.badge.bg-success-subtle {
+  background-color: rgba(34, 197, 94, 0.12) !important;
+  color: #15803d !important;
+}
+
+.badge.bg-danger-subtle {
+  background-color: rgba(239, 68, 68, 0.12) !important;
+  color: #b91c1c !important;
+}
+
+.badge.bg-warning-subtle {
+  background-color: rgba(250, 204, 21, 0.18) !important;
+  color: #b45309 !important;
+}
+
+.badge.bg-primary-subtle {
+  background-color: rgba(59, 130, 246, 0.1) !important;
+  color: #2563eb !important;
+}
+
+.host-registrations .table-responsive {
+  scrollbar-width: thin;
+}
+
+.host-registrations .table-responsive::-webkit-scrollbar {
+  height: 8px;
+}
+
+.host-registrations .table-responsive::-webkit-scrollbar-thumb {
+  background-color: rgba(15, 118, 110, 0.25);
+  border-radius: 999px;
+}

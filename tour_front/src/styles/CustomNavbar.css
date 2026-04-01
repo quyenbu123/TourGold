@@ -1,0 +1,184 @@
+/* Custom Navbar Styling */
+:root {
+  --primary-color: #63ab45;
+  --secondary-color: #f7921e;
+  --heading-color: #1c231f;
+  --white-color: #ffffff;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+.navbar {
+  padding: 15px 0;
+  transition: var(--transition);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.navbar-brand img {
+  max-height: 40px;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+.navbar-scrolled .navbar-brand img {
+  max-height: 35px;
+}
+
+.navbar-nav .nav-item {
+  position: relative;
+  margin-left: 5px;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  padding: 8px 15px;
+  position: relative;
+  transition: var(--transition);
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--primary-color) !important;
+}
+
+/* Underline animation for navbar links */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+  transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 70%;
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  border-radius: 30px;
+  padding: 8px 20px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Dropdown styling */
+.dropdown-menu {
+  padding: 10px 0;
+  border: none;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.dropdown-item {
+  padding: 8px 20px;
+  transition: var(--transition);
+}
+
+.dropdown-item:hover {
+  background-color: rgba(99, 171, 69, 0.1);
+  color: var(--primary-color);
+}
+
+/* User dropdown with avatar */
+.user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 5px;
+}
+
+.user-dropdown {
+  display: flex;
+  align-items: center;
+}
+
+/* Remove default Bootstrap caret and unwanted background block for user dropdown */
+.user-dropdown::after {
+  display: none !important;
+}
+
+/* Ensure button version of dropdown trigger looks like link (no green rectangle) */
+button.user-dropdown.nav-link {
+  background: transparent !important;
+  border: none;
+  padding: 0;
+}
+
+button.user-dropdown.nav-link:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Transparent navbar modifications */
+.navbar-transparent {
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.navbar-scrolled {
+  padding: 10px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile menu */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: var(--white-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+    box-shadow: var(--shadow);
+  }
+
+  .navbar-dark .navbar-collapse {
+    background-color: rgba(28, 35, 31, 0.95);
+  }
+
+  .navbar-nav .nav-link::after {
+    display: none;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px 15px;
+  }
+
+  .dropdown-menu {
+    border: none;
+    background-color: rgba(99, 171, 69, 0.05);
+    box-shadow: none;
+  }
+
+  .navbar-toggler {
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: var(--transition);
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+}
