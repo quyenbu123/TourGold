@@ -4,8 +4,8 @@ services:
     runtime: docker
     plan: free
     rootDir: tour_back
-    dockerfilePath: ./tour_back/Dockerfile
-    dockerContext: ./tour_back
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
     healthCheckPath: /api/v1/tours/featured-ids
     envVars:
       - key: PORT
