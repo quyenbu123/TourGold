@@ -1,11 +1,11 @@
 services:
   - type: web
     name: tourgold-backend
-    runtime: java
+    runtime: docker
     plan: free
     rootDir: tour_back
-    buildCommand: ./mvnw clean package -DskipTests
-    startCommand: java -jar target/tour_back-0.0.1-SNAPSHOT.jar
+    dockerfilePath: ./tour_back/Dockerfile
+    dockerContext: ./tour_back
     healthCheckPath: /api/v1/tours/featured-ids
     envVars:
       - key: PORT
